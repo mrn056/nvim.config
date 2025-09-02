@@ -21,6 +21,8 @@ return {
 					BlinkCmpDoc = { bg = "base" },
 					BlinkCmpMenuBorder = { fg = "muted" },
 					BlinkCmpDocBorder = { fg = "muted" },
+
+					["@type.builtin"] = { fg = "love" },
 				},
 			})
 
