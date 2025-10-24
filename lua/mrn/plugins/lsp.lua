@@ -135,6 +135,7 @@ return {
 				lua = { "stylua" },
 				java = { "google-java-format" },
 				cs = { "csharpier" },
+				ino = { "clang-format" },
 			},
 
 			formatters = {
