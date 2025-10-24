@@ -26,37 +26,20 @@ return {
 		},
 
 		config = function()
-			local capabilites = require("blink.cmp").get_lsp_capabilities()
-
-			local servers = {
-				lua_ls = {
-					Lua = {
-						diagnostics = {
-							disable = { "missing-fields" },
-						},
-					},
-				},
-			}
-
-			local ensure_installed = vim.tbl_keys(servers or {})
-			vim.list_extend(ensure_installed, {
-				"stylua",
-			})
-
-			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 			require("mason-lspconfig").setup({
 				ensure_installed = {},
-				automatic_installation = false,
-
-				handlers = {
-					function(server_name)
-						local server = servers[server_name] or {}
-
-						server.capabilites = vim.tbl_extend("force", {}, capabilites, server.capabilites or {})
-						require("lspconfig")[server_name].setup(server)
-					end,
-				},
+				automatic_enable = true,
 			})
+
+			if vim.fn.has("win32") == 1 then
+				vim.lsp.config("arduino_language_server", {
+					cmd = {
+						"arduino-language-server",
+						"-cli-config",
+						"%localappdata%\\Arduino15\\arduino-cli.yaml",
+					},
+				})
+			end
 		end,
 	},
 	{
@@ -151,6 +134,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				java = { "google-java-format" },
+				cs = { "csharpier" },
 			},
 
 			formatters = {
