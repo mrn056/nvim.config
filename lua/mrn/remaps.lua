@@ -28,3 +28,5 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 vim.keymap.set("n", "<leader>=", "mygg=G`y<cmd>delmarks y<CR>")
+
+vim.keymap.set("n", "<leader>q", ":<cmd>w | !arduino-cli compile && arduino-cli upload<CR>")
