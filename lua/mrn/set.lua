@@ -8,6 +8,11 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
+vim.opt.splitright = true
+
+vim.opt.formatoptions:remove("c")
+vim.opt.formatoptions:remove("r")
+vim.opt.formatoptions:remove("o")
 
 vim.opt.swapfile = false
 vim.opt.backup = false

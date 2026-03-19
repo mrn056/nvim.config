@@ -78,7 +78,42 @@ return {
 
 				menu = {
 					border = "rounded",
-					draw = { gap = 2 },
+					draw = {
+						gap = 2,
+						components = {
+							-- customize the drawing of kind icons
+							kind_icon = {
+								text = function(ctx)
+									-- default kind icon
+									local icon = ctx.kind_icon
+									-- if LSP source, check for color derived from documentation
+									if ctx.item.source_name == "LSP" then
+										local color_item = require("nvim-highlight-colors").format(
+											ctx.item.documentation,
+											{ kind = ctx.kind }
+										)
+										if color_item and color_item.abbr ~= "" then icon = color_item.abbr end
+									end
+									return icon .. ctx.icon_gap
+								end,
+								highlight = function(ctx)
+									-- default highlight group
+									local highlight = "BlinkCmpKind" .. ctx.kind
+									-- if LSP source, check for color derived from documentation
+									if ctx.item.source_name == "LSP" then
+										local color_item = require("nvim-highlight-colors").format(
+											ctx.item.documentation,
+											{ kind = ctx.kind }
+										)
+										if color_item and color_item.abbr_hl_group then
+											highlight = color_item.abbr_hl_group
+										end
+									end
+									return highlight
+								end,
+							},
+						},
+					},
 					-- winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
 				},
 
@@ -120,7 +155,7 @@ return {
 			notify_on_error = false,
 
 			format_on_save = function(bufnr)
-				local disable_filetypes = { c = true, cpp = true }
+				local disable_filetypes = {}
 				if disable_filetypes[vim.bo[bufnr].filetype] then
 					return nil
 				else
@@ -135,12 +170,18 @@ return {
 				lua = { "stylua" },
 				java = { "google-java-format" },
 				cs = { "csharpier" },
-				ino = { "clang-format" },
+				json = { "jq" },
+				html = { "prettierd" },
+				css = { "prettierd" },
+				javascript = { "prettierd" },
 			},
 
 			formatters = {
 				stylua = {
 					append_args = { "--collapse-simple-statement", "Always" },
+				},
+				prettierd = {
+					append_args = { "--tabWidth=4" },
 				},
 			},
 		},
