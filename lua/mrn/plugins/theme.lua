@@ -13,8 +13,9 @@ return {
 					CurSearch = { fg = "base", bg = "leaf", inherit = false },
 					Search = { fg = "text", bg = "leaf", blend = 20, inherit = false },
 
-					NormalFloat = { bg = "base" },
+					NormalFloat = { bg = "overlay" },
 					FloatBorder = { bg = "none", fg = "muted" },
+					TelescopeNormal = { bg = "base" },
 					TelescopeBorder = { bg = "none", fg = "muted" },
 
 					BlinkCmpMenu = { bg = "base" },
