@@ -21,6 +21,7 @@ vim.opt.undofile = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
+vim.o.winborder = "rounded"
 
 vim.opt.scrolloff = 10
 

@@ -77,7 +77,6 @@ return {
 				},
 
 				menu = {
-					border = "rounded",
 					draw = {
 						gap = 2,
 						components = {
@@ -114,15 +113,10 @@ return {
 							},
 						},
 					},
-					-- winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
 				},
 
 				documentation = {
-					auto_show = false,
-					window = {
-						border = "rounded",
-						-- winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
-					},
+					auto_show = true,
 				},
 			},
 
@@ -143,7 +137,9 @@ return {
 
 			fuzzy = { implementation = "prefer_rust_with_warning" },
 
-			signature = { enabled = true },
+			signature = {
+				enabled = true,
+			},
 		},
 	},
 	{

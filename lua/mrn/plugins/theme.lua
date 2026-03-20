@@ -13,15 +13,16 @@ return {
 					CurSearch = { fg = "base", bg = "leaf", inherit = false },
 					Search = { fg = "text", bg = "leaf", blend = 20, inherit = false },
 
-					NormalFloat = { bg = "overlay" },
-					FloatBorder = { bg = "none", fg = "muted" },
-					TelescopeNormal = { bg = "base" },
-					TelescopeBorder = { bg = "none", fg = "muted" },
+					NormalFloat = { bg = "base" },
+					FloatBorder = { bg = "base", fg = "muted" },
+
+					TelescopeBorder = { bg = "base", fg = "muted" },
 
 					BlinkCmpMenu = { bg = "base" },
 					BlinkCmpDoc = { bg = "base" },
 					BlinkCmpMenuBorder = { fg = "muted" },
 					BlinkCmpDocBorder = { fg = "muted" },
+					BlinkCmpSignatureHelpBorder = { fg = "muted" },
 
 					["@type.builtin"] = { fg = "love" },
 				},
