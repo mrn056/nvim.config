@@ -31,4 +31,8 @@ vim.keymap.set("n", "<leader>=", "mygg=G`y<cmd>delmarks y<CR>")
 
 vim.keymap.set("n", "<leader>q", ":<cmd>w | !arduino-cli compile && arduino-cli upload<CR>")
 
-vim.keymap.set("n", "grd", vim.lsp.buf.hover)
+vim.keymap.set("n", "grd", function()
+	vim.lsp.buf.hover({
+		border = "rounded",
+	})
+end)

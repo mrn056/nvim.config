@@ -77,6 +77,7 @@ return {
 				},
 
 				menu = {
+					border = "rounded",
 					draw = {
 						gap = 2,
 						components = {
@@ -117,6 +118,9 @@ return {
 
 				documentation = {
 					auto_show = true,
+					window = {
+						border = "rounded",
+					},
 				},
 			},
 
@@ -139,6 +143,9 @@ return {
 
 			signature = {
 				enabled = true,
+				window = {
+					border = "rounded",
+				},
 			},
 		},
 	},
