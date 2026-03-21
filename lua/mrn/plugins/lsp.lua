@@ -21,8 +21,6 @@ return {
 			},
 
 			{ "j-hui/fidget.nvim", opts = {} },
-
-			"saghen/blink.cmp",
 		},
 
 		config = function()
@@ -121,6 +119,10 @@ return {
 					window = {
 						border = "rounded",
 					},
+				},
+
+				ghost_text = {
+					enabled = true,
 				},
 			},
 
