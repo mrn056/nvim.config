@@ -179,6 +179,8 @@ return {
 				html = { "prettierd" },
 				css = { "prettierd" },
 				javascript = { "prettierd" },
+				typescript = { "prettierd" },
+				python = { "ruff_fix", "ruff_format" },
 			},
 
 			formatters = {
